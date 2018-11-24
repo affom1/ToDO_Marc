@@ -1,4 +1,4 @@
-package org.todo;
+package org.todo.servlets;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,5 +30,7 @@ public class CounterServlet extends HttpServlet {
         session.setAttribute("counter", counter + 1);
         doGet(request, response);
     }
+
+
 
 }

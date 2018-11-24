@@ -1,4 +1,4 @@
-package org.todo;
+package org.todo.servlets;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
