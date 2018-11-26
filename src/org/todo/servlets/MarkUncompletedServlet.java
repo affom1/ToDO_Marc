@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 
-@WebServlet("/markCompleted.do")
-public class MarkCompletedServlet extends HttpServlet {
+@WebServlet("/markUncompleted.do")
+public class MarkUncompletedServlet extends HttpServlet {
     LinkedList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
@@ -34,12 +34,12 @@ public class MarkCompletedServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        int id = Integer.parseInt(request.getParameter("Complete"));
+        int id = Integer.parseInt(request.getParameter("Uncomplete"));
         System.out.println("Wir ändern Element: "+ id);
         // Todos mit entprechender ID als Completed markieren.
         for (Todo todo : currentUser.getTodoList()) {
             if (todo.getId()== id) {
-                todo.setCompleted(true);
+                todo.setCompleted(false);
             }
         }
         // save them in the ServletContext

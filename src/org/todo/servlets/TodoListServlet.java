@@ -50,6 +50,10 @@ public class TodoListServlet extends HttpServlet {
         // Todos sortieren: using Lambadas --> heavy shit
         Collections.sort(currentUser.getTodoList(), (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
 
+
+        //Todo Wahlweise nur eine bestimmte Kategorie anzeigen.
+
+
         response.setContentType("text/html");
         try (PrintWriter out = response.getWriter()) {
 
@@ -69,8 +73,9 @@ public class TodoListServlet extends HttpServlet {
                     "       <th>Due Date</th>\n" +
                     "       <th>Important</th>\n" +
                     "       <th>Completed</th>\n" +
-                    "       <th></th>\n" +
-                    "       <th></th>\n" +
+                    "       <th>Un/Complete</th>\n" +
+                    "       <th>Update</th>\n" +
+                    "       <th>Delete</th>\n" +
                     "      </tr>");
 
             // the data
@@ -89,10 +94,10 @@ public class TodoListServlet extends HttpServlet {
                    out.println("<TD>" + currentUser.getTodoList().get(i).isImportant() + "</TD>");
                    out.println("<TD>" + currentUser.getTodoList().get(i).isCompleted() + "</TD>");
                    if (currentUser.getTodoList().get(i).isCompleted()) {
-                       out.println("<form action=\"/markUncompleted.do\" method=\"get\"> <TD> <button type=\"submit\" name=\"Uncomplete\" value=\""+currentUser.getTodoList().get(i).getId()+"\">Mark Uncomplete</button>  </TD></form>");
-                   } else { out.println("<form action=\"/markUncompleted.do\" method=\"get\"> <TD> <button type=\"submit\" name=\"Salami\" value=\""+currentUser.getTodoList().get(i).getId()+"\">Salami2</button> </TD></form> ");}
-                   out.println("<TD><button type=\"submit\" value=update\""+currentUser.getTodoList().get(i).getId()+"\" >Update</button></TD></form>");
-                   out.println("<TD><button type=\"submit\" value=delete\""+currentUser.getTodoList().get(i).getId()+"\" >Delete</button></TD></form>");
+                       out.println("<TD><form action=\"markUncompleted.do\" method=\"get\"> <button type=\"submit\" name=\"Uncomplete\" value=\""+currentUser.getTodoList().get(i).getId()+"\">Mark Uncomplete</button></form></TD>");
+                   } else { out.println("<TD><form action=\"markCompleted.do\" method=\"get\"> <button type=\"submit\" name=\"Complete\" value=\""+currentUser.getTodoList().get(i).getId()+"\">Complete Todo</button></form></TD> ");}
+                   out.println("<TD><form action=\"update.do\" method=\"get\"><button type=\"submit\" name=\"update\" value=\""+currentUser.getTodoList().get(i).getId()+"\">Update</button></form></TD>");
+                   out.println("<TD><form action=\"delete.do\" method=\"get\"><button type=\"submit\" name=\"delete\" value=\""+currentUser.getTodoList().get(i).getId()+"\">Delete</button></form></TD>");
                    out.println("</TR>");
 
             }

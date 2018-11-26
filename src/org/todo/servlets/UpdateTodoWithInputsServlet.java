@@ -1,6 +1,5 @@
 package org.todo.servlets;
 
-import org.todo.business.Todo;
 import org.todo.business.TodoUser;
 
 import javax.servlet.ServletContext;
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 
-@WebServlet("/markCompleted.do")
-public class MarkCompletedServlet extends HttpServlet {
+@WebServlet("/UpdateTodoWithInputs.do")
+public class UpdateTodoWithInputsServlet extends HttpServlet {
     LinkedList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
@@ -32,18 +31,29 @@ public class MarkCompletedServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        int id = Integer.parseInt(request.getParameter("Complete"));
-        System.out.println("Wir ändern Element: "+ id);
-        // Todos mit entprechender ID als Completed markieren.
-        for (Todo todo : currentUser.getTodoList()) {
-            if (todo.getId()== id) {
-                todo.setCompleted(true);
-            }
+        int id = Integer.parseInt(request.getParameter("id"));
+        String title = request.getParameter("title");
+        String category = request.getParameter("category");
+        boolean important = false;
+        boolean completed = false;
+        String stringImportant = null;
+        if (request.getParameter("completed")!=null) {
+            completed=true;
         }
-        // save them in the ServletContext
+        // important ist einfach Null wenn nicht angekreut. Mühsam...
+        try {
+            stringImportant = request.getParameter("important");
+            if (stringImportant.equals("on")) important = true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String date = request.getParameter("dueDate");
+
+        // update of Todos and save them.
+        currentUser.getTodoList().get(id).updateEverythingButId(title, category,date,important,completed);
         sc.setAttribute("users", userList);
+
         // send him back to the List
         response.sendRedirect(request.getContextPath() + "/TodoList.do");
 

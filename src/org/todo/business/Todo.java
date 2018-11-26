@@ -48,14 +48,19 @@ public class Todo {
     public void setCategory(String category) {
         this.category = category;
     }
-
+    public void updateEverythingButId (String title, String category, String datum, boolean important, boolean completed) {
+        this.title=title;
+        this.category=category;
+        DateTimeFormatter marcFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        this.dueDate = LocalDate.parse(datum, marcFormatter);
+        this.important=important;
+        this.completed=completed;
+    }
     public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
-    }
+
 
     public boolean isImportant() {
         return important;
