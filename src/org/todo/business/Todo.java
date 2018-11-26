@@ -19,11 +19,8 @@ public class Todo {
         this.title = title;
         this.category = category;
         // Datumskreation
-        //Todo: eventuell ein wenig Error-Handling...
-        DateTimeFormatter germanFormatter = DateTimeFormatter.ofLocalizedDate(
-                FormatStyle.MEDIUM).withLocale(Locale.GERMAN);
-        this.dueDate = LocalDate.parse(datum, germanFormatter);
-
+        DateTimeFormatter marcFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+        this.dueDate = LocalDate.parse(datum, marcFormatter);
         this.important = important;
         this.completed = completed;
     }

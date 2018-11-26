@@ -19,6 +19,7 @@ public class TodoUser {
 
     public void addTodo(String title, String category, String datum, boolean important, boolean completed){
         todoList.add(new Todo (count.incrementAndGet(), title, category, datum, important, completed));
+        System.out.println("New Todo is created.");
     }
 
     public LinkedList<Todo> getTodoList() {

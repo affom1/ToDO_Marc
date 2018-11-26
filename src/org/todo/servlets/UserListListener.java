@@ -37,11 +37,11 @@ public class UserListListener implements ServletContextListener,
 
             // create a bunch of Samples, uncomment if necessary
             userList.add(new TodoUser("Freddy Dummy", "password1"));
-            userList.get(0).addTodo("Todo 1", "Verein", "24.11.2018", false, false);
-            userList.get(0).addTodo("Todo 1", "Verein", "24.12.2018", false, false);
-            userList.get(0).addTodo("Todo 1", "Arbeit", "13.11.2018", false, false);
-            userList.get(0).addTodo("Todo 1", "Arbeit", "26.11.2018", false, false);
-            userList.get(0).addTodo("Todo 1", "Schule und eine andere unnötig lange Kategorie", "12.11.2018", false, false);
+            userList.get(0).addTodo("Todo 1", "Verein", "2018-11-24", false, false);
+            userList.get(0).addTodo("Todo 1", "Verein", "2018-12-24", false, false);
+            userList.get(0).addTodo("Todo 1", "Arbeit", "2018-11-13", false, false);
+            userList.get(0).addTodo("Todo 1", "Arbeit", "2018-11-26", false, false);
+            userList.get(0).addTodo("Todo 1", "Schule und eine andere unnötig lange Kategorie", "2018-11-12", false, false);
 
             // save them in the ServletContext
             sc.setAttribute("users", userList);
@@ -50,7 +50,7 @@ public class UserListListener implements ServletContextListener,
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
-      /* This method is invoked when the Servlet Context 
+      /* This method is invoked when the MarkCompletedServlet Context
          (the Web application) is undeployed or 
          Application Server shuts down.
       */

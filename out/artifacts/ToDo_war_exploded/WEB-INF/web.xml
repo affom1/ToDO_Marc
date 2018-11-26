@@ -6,4 +6,7 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    <listener>
+        <listener-class>org.todo.servlets.UserListListener</listener-class>
+    </listener>
 </web-app>

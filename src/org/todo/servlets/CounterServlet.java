@@ -16,7 +16,7 @@ public class CounterServlet extends HttpServlet {
         if (counter == null) counter = 0;
         response.setContentType("text/html");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<html><body><h1>Counter Servlet</h1>"
+            out.println("<html><body><h1>Counter MarkCompletedServlet</h1>"
                     + "<form action='" + response.encodeURL("counter.do") + "' method='post'>"
                     + "Counter: " + counter
                     + "<input type='submit' value='Increment'/>"
