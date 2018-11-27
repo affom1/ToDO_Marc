@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 @WebServlet("/markCompleted.do")
 public class MarkCompletedServlet extends HttpServlet {
-    LinkedList<TodoUser> userList;
+    ArrayList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
 
@@ -22,10 +22,10 @@ public class MarkCompletedServlet extends HttpServlet {
         // ServerContext initialisieren
         sc = this.getServletContext();
         // UserListe aus ServerContext ziehen.
-        userList = ( LinkedList<TodoUser>) sc.getAttribute("users");
+        userList = ( ArrayList<TodoUser>) sc.getAttribute("users");
 
         // und wiederum speichern im ServletContext.
-        sc.setAttribute("users", userList);
+//        sc.setAttribute("users", userList);
 
         // Todo: Choose the correct user, for now, just take the first.
         currentUser = userList.get(0);
@@ -43,7 +43,7 @@ public class MarkCompletedServlet extends HttpServlet {
             }
         }
         // save them in the ServletContext
-        sc.setAttribute("users", userList);
+//        sc.setAttribute("users", userList);
         // send him back to the List
         response.sendRedirect(request.getContextPath() + "/TodoList.do");
 

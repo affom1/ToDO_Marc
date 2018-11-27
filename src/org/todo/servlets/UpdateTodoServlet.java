@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Locale;
 
 @WebServlet("/update.do")
 public class UpdateTodoServlet extends HttpServlet {
-    LinkedList<TodoUser> userList;
+    ArrayList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
 
@@ -26,10 +26,10 @@ public class UpdateTodoServlet extends HttpServlet {
         // ServerContext initialisieren
         sc = this.getServletContext();
         // UserListe aus ServerContext ziehen.
-        userList = ( LinkedList<TodoUser>) sc.getAttribute("users");
+        userList = ( ArrayList<TodoUser>) sc.getAttribute("users");
 
         // und wiederum speichern im ServletContext.
-        sc.setAttribute("users", userList);
+//        sc.setAttribute("users", userList);
 
         // Todo: Choose the correct user, for now, just take the first.
         currentUser = userList.get(0);
@@ -40,15 +40,17 @@ public class UpdateTodoServlet extends HttpServlet {
 
         int id = Integer.parseInt(request.getParameter("update"));
         response.setContentType("text/html");
-        String on="";
+        String important="";
         String completed ="";
         Todo todo =null;
 
         for (int i = 0;i<currentUser.getTodoList().size();i++) {
             if (currentUser.getTodoList().get(i).getId() == id) {
                 todo = currentUser.getTodoList().get(i);
-                if (todo.isImportant())on = "checked";
+                if (todo.isImportant())important = "checked";
                 if (todo.isCompleted())completed = "checked";
+                System.out.println(important);
+                System.out.println(completed);
             }
         }
 
@@ -72,9 +74,9 @@ public class UpdateTodoServlet extends HttpServlet {
                     "    Due date: <input type=\"date\" name=\"dueDate\" value=\""+todo.getDueDate()+"\"/>\n" +
                     "    <input type=\"hidden\" name=\"id\" value=\""+id+"\"/>\n"+
                     "    <br/><br/>\n" +
-                    "    Important? <input type=\"checkbox\" name=\"important\" "+on+"/>\n" +
+                    "    Important? <input type=\"checkbox\" name=\"important\" value=\"important\" "+important+"/>\n" +
                     "    <br/><br/>\n" +
-                    "    Completed? <input type=\"checkbox\" name=\"completed\" "+completed+"/>\n" +
+                    "    Completed? <input type=\"checkbox\" name=\"completed\" value=\"completed\" "+completed+"/>\n" +
                     "    <br/><br/>\n" +
                     "    <input type=\"submit\" value=\"Update your Todo\"/>\n" +
                     "</form>" +

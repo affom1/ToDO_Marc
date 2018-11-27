@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 import javax.servlet.http.HttpSessionBindingEvent;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 @WebListener()
 public class UserListListener implements ServletContextListener,
@@ -30,10 +30,10 @@ public class UserListListener implements ServletContextListener,
       */
       // get the ServletContext from the event, that is created from the listener
         ServletContext sc = sce.getServletContext();
-        LinkedList<TodoUser> userList = (LinkedList<TodoUser>) sc.getAttribute("users"); // This should retrieve a null object, as it should be empty
+        ArrayList<TodoUser> userList = (ArrayList<TodoUser>) sc.getAttribute("users"); // This should retrieve a null object, as it should be empty
         if (userList == null) { // ist es sowieso
             System.out.println("Noch keine User erstellt. User werden erstellt");
-            userList = new LinkedList<>();
+            userList = new ArrayList<>();
 
             // create a bunch of Samples, uncomment if necessary
             userList.add(new TodoUser("Freddy Dummy", "password1"));

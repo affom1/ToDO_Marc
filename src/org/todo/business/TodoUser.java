@@ -1,20 +1,20 @@
 package org.todo.business;
 
 import java.time.LocalDate;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class TodoUser {
 
     private String name;
     private String password;
-    private LinkedList<Todo> todoList;
+    private ArrayList<Todo> todoList;
     private static final AtomicInteger count = new AtomicInteger(0);
 
     public TodoUser(String name, String password) {
         this.name = name;
         this.password = password;
-        this.todoList = new LinkedList<>();
+        this.todoList = new ArrayList<>();
     }
 
     public void addTodo(String title, String category, String datum, boolean important, boolean completed){
@@ -22,7 +22,7 @@ public class TodoUser {
         System.out.println("New Todo is created.");
     }
 
-    public LinkedList<Todo> getTodoList() {
+    public ArrayList<Todo> getTodoList() {
         return this.todoList;
     }
 
@@ -34,8 +34,8 @@ public class TodoUser {
 
     }
 
-    public LinkedList<String> getCategories() {
-        LinkedList<String> categoryList = new LinkedList<>();
+    public ArrayList<String> getCategories() {
+        ArrayList<String> categoryList = new ArrayList<>();
         for (Todo todo : todoList) {
             categoryList.add(todo.getCategory());
         }

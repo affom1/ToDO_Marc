@@ -16,28 +16,22 @@ import java.io.PrintWriter;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Locale;
 
 @WebServlet("/TodoList.do")
 public class TodoListServlet extends HttpServlet {
-    LinkedList<TodoUser> userList;
+    ArrayList<TodoUser> userList;
     TodoUser currentUser;
 
     public void init () {
         // ServerContext initialisieren
         ServletContext sc = this.getServletContext();
         // UserListe aus ServerContext ziehen.
-        userList = ( LinkedList<TodoUser>) sc.getAttribute("users");
+        userList = ( ArrayList<TodoUser>) sc.getAttribute("users");
 
-        for (TodoUser user : userList) {
-            LinkedList<Todo> todos = user.getTodoList();
-            for (Todo todo : todos) {
-                System.out.println(todo.getId());
-            }
-        }
         // und wiederum speichern im ServletContext.
-        sc.setAttribute("users", userList);
+//        sc.setAttribute("users", userList);
 
         // Todo: Choose the correct user, for now, just take the first.
         currentUser = userList.get(0);
