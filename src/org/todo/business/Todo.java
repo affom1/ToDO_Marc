@@ -58,9 +58,15 @@ public class Todo {
         this.completed=completed;
     }
     public LocalDate getDueDate() {
-        return dueDate;
-    }
 
+        return dueDate;
+
+    }
+    public String getFormattedDate() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.LL.yyyy");
+
+        return dueDate.format(formatter);
+    }
     public boolean isImportant() {
         return important;
     }

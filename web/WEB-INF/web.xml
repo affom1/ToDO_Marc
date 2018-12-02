@@ -9,4 +9,5 @@
     <listener>
         <listener-class>org.todo.servlets.UserListListener</listener-class>
     </listener>
+
 </web-app>

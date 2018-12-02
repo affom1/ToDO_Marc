@@ -26,12 +26,8 @@ public class TodoUser {
         return this.todoList;
     }
 
-    public void updateTodo(){
-
-    }
-
-    public void removeTodo(int index){
-
+    public String getName () {
+        return name;
     }
 
     public ArrayList<String> getCategories() {
