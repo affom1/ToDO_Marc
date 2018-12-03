@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/markUncompleted.do")
-public class MarkUncompletedServlet extends HttpServlet {
+@WebServlet("/MarkUncompletedNew.do")
+public class MarkUncompletedNewServlet extends HttpServlet {
     ArrayList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
@@ -31,10 +31,10 @@ public class MarkUncompletedServlet extends HttpServlet {
         currentUser = userList.get(0);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        int id = Integer.parseInt(request.getParameter("Uncomplete"));
+        int id = Integer.parseInt(request.getParameter("complete"));
         System.out.println("Wir ändern Element: "+ id);
         // Todos mit entprechender ID als Completed markieren.
         for (Todo todo : currentUser.getTodoList()) {
@@ -45,7 +45,7 @@ public class MarkUncompletedServlet extends HttpServlet {
         // save them in the ServletContext
 //        sc.setAttribute("users", userList);
         // send him back to the List
-        response.sendRedirect(request.getContextPath() + "/TodoList.do");
+        response.sendRedirect(request.getContextPath() + "/todoListNew.do");
 
     }
 }

@@ -71,6 +71,14 @@ public class Todo {
         return important;
     }
 
+    public boolean isImportantAndOverdue() {
+        if ((important) && (isOverdue() )) {
+            return true;
+        }
+
+        return false;
+    }
+
     public void setImportant(boolean important) {
         this.important = important;
     }
@@ -84,9 +92,9 @@ public class Todo {
     }
 
     public boolean isOverdue () {
-        if (this.dueDate.isAfter(LocalDate.now())) return true;
+        if (this.dueDate.isAfter(LocalDate.now())) return false; // das Due Date ist nach heute --> somit NICHT overdue
 
-        return false;
+        return true;
     }
 
 }

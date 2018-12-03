@@ -1,6 +1,5 @@
 package org.todo.servlets;
 
-import org.todo.business.Todo;
 import org.todo.business.TodoUser;
 
 import javax.servlet.ServletContext;
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/delete.do")
-public class DeleteTodoServlet extends HttpServlet {
+@WebServlet("/DeleteNew.do")
+public class DeleteTodoNewServlet extends HttpServlet {
     ArrayList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
@@ -31,7 +30,7 @@ public class DeleteTodoServlet extends HttpServlet {
         currentUser = userList.get(0);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
         int id = Integer.parseInt(request.getParameter("delete"));
@@ -43,7 +42,7 @@ public class DeleteTodoServlet extends HttpServlet {
         // save them in the ServletContext
 //        sc.setAttribute("users", userList);
         // send him back to the List
-        response.sendRedirect(request.getContextPath() + "/TodoList.do");
+        response.sendRedirect(request.getContextPath() + "/todoListNew.do");
 
     }
 }

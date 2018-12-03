@@ -68,7 +68,7 @@ public class UpdateTodoWithInputsServlet extends HttpServlet {
 //        sc.setAttribute("users", userList);
 
         // send him back to the List
-        response.sendRedirect(request.getContextPath() + "/TodoList.do");
+        response.sendRedirect(request.getContextPath() + "/todoListNew.do");
 
     }
 }

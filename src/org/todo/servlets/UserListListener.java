@@ -39,10 +39,11 @@ public class UserListListener implements ServletContextListener,
             userList.add(new TodoUser("Freddy Dummy", "password1"));
             userList.get(0).addTodo("Grossmutter besuchen", "Freizeit", "2018-11-24", false, false);
             userList.get(0).addTodo("Grossmutter befragen", "Freizeit", "2018-12-24", true, false);
-            userList.get(0).addTodo("Von Wolf flüchten", "Panik", "2018-11-13", false, false);
+            userList.get(0).addTodo("Von Wolf flüchten", "Panik", "2018-11-13", false, true);
             userList.get(0).addTodo("Im Wald stolpern", "Dumm", "2018-11-26", false, false);
-            userList.get(0).addTodo("Wolf töten", "Panik", "2018-11-12", true, false);
-
+            userList.get(0).addTodo("Wolf töten", "Panik", "2018-11-12", true, true);
+            userList.get(0).addTodo("Salami essen", "Panik", "2019-11-12", false, false);
+            userList.get(0).addTodo("Joggen", "Freizeit", "2019-08-12", true, false);
             // save them in the ServletContext
             sc.setAttribute("users", userList);
         }

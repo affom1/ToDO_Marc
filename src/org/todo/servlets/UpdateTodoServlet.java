@@ -35,7 +35,7 @@ public class UpdateTodoServlet extends HttpServlet {
         currentUser = userList.get(0);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
         int id = Integer.parseInt(request.getParameter("update"));
@@ -64,7 +64,7 @@ public class UpdateTodoServlet extends HttpServlet {
                     "<ul>\n" +
                     "   <li><a href=\"CreateTodo.html\">Create new Todo</a></li>\n" +
                     "    <li><a href=\"Login.do\">LogOut</a></li>\n" +
-                    "    <li><a href=\"TodoList.do\">Todo List</a></li>\n" +
+                    "    <li><a href=\"todoListNew.do\">Todo List</a></li>\n" +
                     "</ul>" +
                     "<form action=\"UpdateTodoWithInputs.do\" method=\"get\" value=\""+id+"\">\n" +
                     "    Title <input type=\"text\" name=\"title\" value=\""+todo.getTitle()+"\"/>\n" +

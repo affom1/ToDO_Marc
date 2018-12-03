@@ -68,12 +68,62 @@
         .todo {background: yellow; height: 100px; width: 31%; float: left; padding: 10px; 	border-width: 10px;
             border-style: solid;
             border-color: black;
+
             font-family: arial;}
 
         .todo_overdue {background: red; height: 100px; width: 31%; float: left; padding: 10px; 	border-width: 10px;
             border-style: solid;
+
             border-color: black;
             font-family: arial;}
+
+        .todo_important {background: yellow; height: 100px; width: 31%; float: left; padding: 10px; 	border-width: 10px;
+            border-style: solid;
+
+            border-color: gold;
+            font-family: arial;}
+
+        .todo_important_and_overdue {background: red; height: 100px; width: 31%; float: left; padding: 10px; 	border-width: 10px;
+            border-style: solid;
+            ont-weight: bold;
+            border-color: gold;
+            font-family: arial;}
+
+        /*DropdownMenueCSS*/
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        .dropdown:hover .dropdown-content {display: block;}
+
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
         .normal {
             color: black;
@@ -100,7 +150,7 @@
 <div id="container">
     <div id="header">
         <div class = "inhalt inhalt_header" action="todoListNew.do" method="get">
-            <h1 class = "inhalt_header_font">Todos von ${aktuellerUser}</h1>
+            <h1 class = "inhalt_header_font">Todos of ${aktuellerUser}</h1>
         </div>
         <br>
     </div>
@@ -109,52 +159,115 @@
         <div class = "inhalt">
             <a href="CreateTodo.html">
                 <section>
-                    <h1>Neue ToDo erfassen</h1>
+                    <h1>Create New Todo</h1>
                 </section>
             </a>
-            <!--
-            <a href=\"TodoListFiltern.do\">
-                <section>
-                 <h1>ToDo's filtern</h1>
-                </section>
-            </a>
-            -->
             <section>
-                <h1>Deine Todos</h1>
+                <h2>Category-Chooser</h2>
+                <p>Display only Todos of a certain category</p>
+
+                <div class="dropdown" action="todoListNew" method="get">
+                    <button class="dropbtn">Display categorie:</button>
+                    <div class="dropdown-content">
+                        <form action = todoListNew.do method="post" name="categoryIndex">
+                        <c:forEach items="${categoryList}" var="category" varStatus="loop" >
+                            <li><a onclick="getCategoryIndex(${loop.index})">${category}</a></li>
+                        </c:forEach>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h1>Your Todos</h1>
 
                 <div class = "test" action="todoListNew.do" method="get">
                     <c:forEach items="${todoList}" var="element">
-                        <div class = "${element.isOverdue() ? 'todo' : 'todo_overdue'}">
+                        <%--Wahlweise verschiedene Elementklassen, je nach Important und Overdue ausprägung.--%>
+                        <div class = "
+                          <c:choose>
+                            <c:when test="${element.isImportantAndOverdue()}">
+                                todo_important_and_overdue
+                            </c:when>
+                            <c:otherwise>
+                                <c:choose>
+                                    <c:when test="${element.isOverdue()}">
+                                        todo_overdue
+                                    </c:when>
+                                    <c:otherwise>
+                                       <c:choose>
+                                            <c:when test="${element.isImportant()}">
+                                                todo_important
+                                            </c:when>
+                                            <c:otherwise>
+                                            todo
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:otherwise>
+                        </c:choose>
+                         ">
+                                <%--Texte in einer Tabelle--%>
+                            <style type="text/css">
+                                .tg  {border-collapse:collapse;border-spacing:0;}
+                                .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:hidden;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                                .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:hidden;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+                                .tg .tg-0lax{text-align:left;vertical-align:top;}
+                                .tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top}
+                                .tg .tg-re1e{bborder-color:inherit;text-align:left;vertical-align:top;writing-mode: tb-rl;}
+                                @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
+                            <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 239px">
+                                <colgroup>
+                                    <col style="width: 71.2px">
+                                    <col style="width: 71.2px">
+                                    <col style="width: 73.2px">
+                                    <col style="width: 23px">
+                                </colgroup>
+                                <tr>
+                                    <%--Elemente jeweils durchgetrichen falls Completed.--%>
+                                    <c:choose>
+                                        <c:when test="${element.isCompleted()}">
+                                            <th class="tg-fymr" colspan="3"><s>${element.getTitle()}</s></th>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <th class="tg-fymr" colspan="3">${element.getTitle()}</th>
+                                        </c:otherwise>
+                                    </c:choose>
 
+                                    <c:choose>
+                                        <c:when test="${element.isCompleted()}">
+                                            <th class="tg-re1e" rowspan="3"><s>${element.getCategory()}</s></th>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <th class="tg-re1e" rowspan="3">${element.getCategory()}</th>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </tr>
+                                <tr>
 
-                                <style type="text/css">
-                                    .tg  {border-collapse:collapse;border-spacing:0;}
-                                    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:hidden;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-                                    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:hidden;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-                                    .tg .tg-qtf5{border-color:#000000;text-align:left}
-                                    .tg .tg-v47y{font-weight:bold;border-color:#000000;text-align:left}
-                                    .tg .tg-pj8m{writing-mode: tb-rl;}
-                                    @media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>
-                                <div class="tg-wrap"><table class="tg" style="undefined;table-layout: fixed; width: 317px">
-                                    <colgroup>
-                                        <col style="width: 136.2px">
-                                        <col style="width: 136.2px">
-                                        <col style="width: 45px">
-                                    </colgroup>
-                                    <tr>
-                                        <th class="tg-v47y" colspan="2">${element.getTitle()}</th>
-                                        <th class="tg-pj8m" rowspan="3">${element.getCategory()}<br></th>
-                                    </tr>
-                                    <tr>
-                                        <td class="tg-qtf5" colspan="2">Fällig am ${element.getFormattedDate()}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tg-qtf5">Button 1</td>
-                                        <td class="tg-qtf5">Button2</td>
-                                    </tr>
-                                </table></div>
-
-
+                                    <c:choose>
+                                        <c:when test="${element.isCompleted()}">
+                                            <td class="tg-0lax" colspan="3"><s>Fällig am ${element.getFormattedDate()}</s> </td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="tg-0lax" colspan="3">Fällig am ${element.getFormattedDate()} </td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </tr>
+                                <tr>
+                                    <c:choose>
+                                        <c:when test="${element.isCompleted()}">
+                                            <td class="tg-0lax"><form action="MarkUncompletedNew.do" method="post"><button type="submit" name="complete" value = ${element.getId()}>Uncomplete</button> </form></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td class="tg-0lax"><form action="MarkCompletedNew.do" method="post"><button type="submit" name="complete" value = ${element.getId()}>Complete</button> </form></td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <td class="tg-0lax"><form action="update.do" method="post"><button type="submit" name="update" value = ${element.getId()}>Update</button> </form> </td>
+                                    <td class="tg-0lax"><form action="DeleteNew.do" method="post"><button type="submit" name="delete" value = ${element.getId()}>Delete</button> </form></td>
+                                </tr>
+                            </table></div>
                         </div>
                     </c:forEach>
 
