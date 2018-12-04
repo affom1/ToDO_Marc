@@ -13,11 +13,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 @WebServlet("/todoListNew.do")
 public class TodoListServletNew extends HttpServlet {
     ArrayList<TodoUser> userList;
     TodoUser currentUser;
+    ArrayList<Todo> kategorienTodoListe = new ArrayList<>();
 
     public void init () {
         // ServerContext initialisieren
@@ -30,7 +32,7 @@ public class TodoListServletNew extends HttpServlet {
 
         // Todo: Choose the correct user, for now, just take the first.
         currentUser = userList.get(0);
-        System.out.println("hallo0");
+
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -42,8 +44,9 @@ public class TodoListServletNew extends HttpServlet {
 
         // Todos sortieren: using Lambadas --> heavy shit
         Collections.sort(currentUser.getTodoList(), (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
-        session.setAttribute("todoList", currentUser.getTodoList());
-        System.out.println("Hallo");
+        kategorienTodoListe = currentUser.getTodoList();
+        session.setAttribute("todoList", kategorienTodoListe);
+
 
         // Kategorienliste erstellen.
         ArrayList<String> categoryList = new ArrayList<>();
@@ -53,8 +56,8 @@ public class TodoListServletNew extends HttpServlet {
             for (String category : categoryList) {
                 if (currentUser.getTodoList().get(i).getCategory().equals(category)) {  //wenn die Kategorie gleich ist:
                     System.out.println("Die Kategorie " + category +" existiert bereits und wird nciht hinzugefügt.");
-
                     doesExist = true;
+                    break;
                 } else {
                     System.out.println("neu hinzufügen: "+currentUser.getTodoList().get(i).getCategory());
                     doesExist=false;
@@ -72,14 +75,42 @@ public class TodoListServletNew extends HttpServlet {
         }
 
         session.setAttribute("categoryList", categoryList);
+
         request.getRequestDispatcher("/todoList.jsp").forward(request, response);
-        System.out.println("Hallo1");
+
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
         HttpSession session = request.getSession();
 
-        int id = Integer.parseInt(request.getParameter("categoryIndex"));
-        System.out.println(id);
+        String choosenCategory = request.getParameter("category");
+
+        if (choosenCategory.equals("all}")) {
+            System.out.println("if wird erreicht");
+            kategorienTodoListe = currentUser.getTodoList();
+        } else {
+            System.out.println("else wird erreicht.");
+            System.out.println(currentUser.getTodoList().size());
+
+            kategorienTodoListe = null;
+            kategorienTodoListe = new ArrayList<>();
+            System.out.println(currentUser.getTodoList().size());
+            for (Todo todo1 : currentUser.getTodoList()) {
+                System.out.println("Das Kategorie todo sieht so aus: "+todo1.getCategory());
+                System.out.println("Das choosen Todo sieht so aus: "+choosenCategory);
+                if (todo1.getCategory().equals(choosenCategory)) {
+                    kategorienTodoListe.add(todo1);
+                    System.out.println(todo1);
+                }
+            }
+        }
+        System.out.println("es wurde vermutlich nichts erreicht.");
+
+
+        System.out.println(choosenCategory);
+        // Kategorie an das JSP schicken, vorher sortieren
+        Collections.sort(kategorienTodoListe, (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
+        session.setAttribute("todoList",kategorienTodoListe );
+
 
         request.getRequestDispatcher("/todoList.jsp").forward(request, response);
     }

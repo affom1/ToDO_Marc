@@ -1,4 +1,4 @@
-package org.todo.servlets;
+package org.todo.servlets.Listeners;
 
 import org.todo.business.TodoUser;
 
@@ -29,6 +29,10 @@ public class UserListListener implements ServletContextListener,
          You can initialize servlet context related data here.
       */
       // get the ServletContext from the event, that is created from the listener
+
+        //Todo Es soll eine Datei ausgelesen werden, wo die Userliste gespeichert ist,
+        //Todo Alternativ, wenn noch keine Datei existiert, soll eine neue Userliste erstellt werden.
+
         ServletContext sc = sce.getServletContext();
         ArrayList<TodoUser> userList = (ArrayList<TodoUser>) sc.getAttribute("users"); // This should retrieve a null object, as it should be empty
         if (userList == null) { // ist es sowieso
@@ -37,6 +41,7 @@ public class UserListListener implements ServletContextListener,
 
             // create a bunch of Samples, uncomment if necessary
             userList.add(new TodoUser("Freddy Dummy", "password1"));
+
             userList.get(0).addTodo("Grossmutter besuchen", "Freizeit", "2018-11-24", false, false);
             userList.get(0).addTodo("Grossmutter befragen", "Freizeit", "2018-12-24", true, false);
             userList.get(0).addTodo("Von Wolf flüchten", "Panik", "2018-11-13", false, true);

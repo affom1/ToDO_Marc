@@ -166,15 +166,16 @@
                 <h2>Category-Chooser</h2>
                 <p>Display only Todos of a certain category</p>
 
-                <div class="dropdown" action="todoListNew" method="get">
-                    <button class="dropbtn">Display categorie:</button>
-                    <div class="dropdown-content">
-                        <form action = todoListNew.do method="post" name="categoryIndex">
-                        <c:forEach items="${categoryList}" var="category" varStatus="loop" >
-                            <li><a onclick="getCategoryIndex(${loop.index})">${category}</a></li>
-                        </c:forEach>
-                        </form>
-                    </div>
+                <div class="dropdown" action="todoListNew" method="get" >
+                    <form action = "todoListNew.do" method="post">
+                        <select name="category">
+                            <option value="all}">--All--</option>
+                            <c:forEach items="${categoryList}" var="category" varStatus="loop"  >
+                                <option value="${category}"> --${category}--</option>
+                            </c:forEach>
+                        </select>
+                        <input type="submit" value="Select category">
+                    </form>
                 </div>
             </section>
 
@@ -182,7 +183,11 @@
                 <h1>Your Todos</h1>
 
                 <div class = "test" action="todoListNew.do" method="get">
+
+                   <%--Todo: nur die gewählte Kategorie anzeigen, Standard: Alles--%>
+
                     <c:forEach items="${todoList}" var="element">
+
                         <%--Wahlweise verschiedene Elementklassen, je nach Important und Overdue ausprägung.--%>
                         <div class = "
                           <c:choose>
@@ -269,6 +274,10 @@
                                 </tr>
                             </table></div>
                         </div>
+
+
+
+
                     </c:forEach>
 
                 </div>
