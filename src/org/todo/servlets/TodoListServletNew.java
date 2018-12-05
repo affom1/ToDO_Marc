@@ -22,35 +22,24 @@ public class TodoListServletNew extends HttpServlet {
     ArrayList<Todo> kategorienTodoListe = new ArrayList<>();
 
     public void init () {
-        // ServerContext initialisieren
-        ServletContext sc = this.getServletContext();
-        // UserListe aus ServerContext ziehen.
-        userList = ( ArrayList<TodoUser>) sc.getAttribute("users");
-
-        // und wiederum speichern im ServletContext.
-//        sc.setAttribute("users", userList);
-
-        // Todo: Choose the correct user, for now, just take the first.
-        currentUser = userList.get(0);
-
+        // Todo: schick User zurück zu Login wenn keine Session vorhanden. evtl. mit Fehlermessage, melde dich an.
+        // Anmerkung, evt. muss das in doGet gemacht werden, da diese Methode sonst trotzdem öffnet.
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        HttpSession session = request.getSession();
-//        Integer counter = (Integer) session.getAttribute("counter");
 
-        session.setAttribute("aktuellerUser", currentUser.getName());
-//        if (counter == null) session.setAttribute("counter", 0);
+        // Session holen und User holen.
+        HttpSession session = request.getSession();
+        currentUser  = (TodoUser) session.getAttribute("currentUser");
 
         // Todos sortieren: using Lambadas --> heavy shit
         Collections.sort(currentUser.getTodoList(), (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
         kategorienTodoListe = currentUser.getTodoList();
         session.setAttribute("todoList", kategorienTodoListe);
 
-
-        // Kategorienliste erstellen.
+        // Kategorienliste erstellen, die tendenziell eine Teilmenge der Todoliste ist.
         ArrayList<String> categoryList = new ArrayList<>();
-        if (categoryList.isEmpty()) categoryList.add(currentUser.getTodoList().get(0).getCategory());   // hinzufügen wenn leer
+        if (categoryList==null) categoryList.add(currentUser.getTodoList().get(0).getCategory());   // hinzufügen wenn leer
         for (int i = 1;i<currentUser.getTodoList().size();i++) { // durch den ersten brauchen wir nciht zu iterieren
            boolean doesExist = true;
             for (String category : categoryList) {
@@ -64,9 +53,9 @@ public class TodoListServletNew extends HttpServlet {
                 }
             }
             if (!doesExist) categoryList.add(new String(currentUser.getTodoList().get(i).getCategory()));
-
         }
 
+        // Debugginggeschichte
         System.out.println("und nun die Kategorieliste durchlaufen");
         System.out.println("grosse der liste"+categoryList.size());
         System.out.println("grosse der Todo liste"+currentUser.getTodoList().size());
@@ -74,17 +63,29 @@ public class TodoListServletNew extends HttpServlet {
             System.out.println(categoryList.get(i));
         }
 
+        // Kategorienliste in der Session speichern, JSP greift auf diese zu. Danach weiterleiten auf TodoListe jsp
         session.setAttribute("categoryList", categoryList);
-
         request.getRequestDispatcher("/todoList.jsp").forward(request, response);
 
     }
+    // Wird nur benötigt um Kategorie zu wählen
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
+
+        // Session holen und User holen.
         HttpSession session = request.getSession();
+        currentUser  = (TodoUser) session.getAttribute("currentUser");
 
-        String choosenCategory = request.getParameter("category");
+        // Gewählte Kategorie aus dem request holen
+        String choosenCategory = "all";  // Standardmässig all damit alle Kategorien angezeigt werden.
+        try {
+            choosenCategory = request.getParameter("category"); // Null wenn das erste Mal geöffnet.
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (choosenCategory==null) choosenCategory = "all";
 
-        if (choosenCategory.equals("all}")) {
+        // alle anzeigen, wenn all, ansonsten gewählte Kategorie anzeiegn.
+        if (choosenCategory.equals("all")) {
             System.out.println("if wird erreicht");
             kategorienTodoListe = currentUser.getTodoList();
         } else {
@@ -109,9 +110,9 @@ public class TodoListServletNew extends HttpServlet {
         System.out.println(choosenCategory);
         // Kategorie an das JSP schicken, vorher sortieren
         Collections.sort(kategorienTodoListe, (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
-        session.setAttribute("todoList",kategorienTodoListe );
 
-
+        // Wenns nicht klappt mit session arbeiten anstelle des request.
+        request.setAttribute("todoList",kategorienTodoListe );
         request.getRequestDispatcher("/todoList.jsp").forward(request, response);
     }
 

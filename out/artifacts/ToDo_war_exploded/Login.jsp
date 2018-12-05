@@ -49,7 +49,7 @@
         }
 
         .login_registration {background: white; margin: auto; text-align: center;}
-
+        .error {color: red}
         @media only screen and (min-width: 700px) {
             .login_registration {width: 700px;}
         }
@@ -114,16 +114,21 @@
                             <input type="submit" name="login" value="Anmelden"/>
                         </form>
                     </div>
+                    <c:if test="${not empty errorMessage}">
+                        <div class="error">
+                            <c:out value="${errorMessage}"/>
+                        </div>
+                    </c:if>
                     <div class = "login_registration_label" onclick="myFunction(2)" style="cursor:pointer;">
                         <h1>Registrieren</h1>
                     </div>
                     <div class = "login_registration_form" id = "registration_form" style="display: none;">
-                        <form action="registrieren.jsp" method="post">
-                            <label for = "name_registration">Your name</label><br>
-                            <input id = "name_registration" style = "width: 90%;" maxlength = "50" required><br>
-                            <label for = "passwd_registration">Password</label><br>
-                            <input type = "password" id = "passwd_registration" style = "width: 90%;" maxlength = "40" required><br><br>
-                            <input type="submit" value="Registrieren"/>
+                        <form action="LoginAndRegister.do" method="post">
+                            <label value = "name_registration">Your name</label><br>
+                            <input name = "name_registration" style = "width: 90%;" maxlength = "50" required><br>
+                            <label value = "passwd_registration">Password</label><br>
+                            <input type= "password" name = "passwd_registration" style = "width: 90%;" maxlength = "40" required><br><br>
+                            <input type="submit" name="login" value="Registrieren"/>
                         </form>
                     </div>
                 </div>

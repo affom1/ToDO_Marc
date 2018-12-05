@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.format.DateTimeFormatter;
@@ -24,19 +25,14 @@ public class UpdateTodoServlet extends HttpServlet {
 
     public void init () {
         // ServerContext initialisieren
-        sc = this.getServletContext();
-        // UserListe aus ServerContext ziehen.
-        userList = ( ArrayList<TodoUser>) sc.getAttribute("users");
 
-        // und wiederum speichern im ServletContext.
-//        sc.setAttribute("users", userList);
-
-        // Todo: Choose the correct user, for now, just take the first.
-        currentUser = userList.get(0);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // Session holen und User holen.
+        HttpSession session = request.getSession();
+        currentUser  = (TodoUser) session.getAttribute("currentUser");
 
         int id = Integer.parseInt(request.getParameter("update"));
         response.setContentType("text/html");

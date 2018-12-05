@@ -32,6 +32,7 @@ public class UserListListener implements ServletContextListener,
 
         //Todo Es soll eine Datei ausgelesen werden, wo die Userliste gespeichert ist,
         //Todo Alternativ, wenn noch keine Datei existiert, soll eine neue Userliste erstellt werden.
+//        userList = userLaden();
 
         ServletContext sc = sce.getServletContext();
         ArrayList<TodoUser> userList = (ArrayList<TodoUser>) sc.getAttribute("users"); // This should retrieve a null object, as it should be empty
@@ -42,24 +43,22 @@ public class UserListListener implements ServletContextListener,
             // create a bunch of Samples, uncomment if necessary
             userList.add(new TodoUser("Freddy Dummy", "password1"));
 
-            userList.get(0).addTodo("Grossmutter besuchen", "Freizeit", "2018-11-24", false, false);
-            userList.get(0).addTodo("Grossmutter befragen", "Freizeit", "2018-12-24", true, false);
-            userList.get(0).addTodo("Von Wolf flüchten", "Panik", "2018-11-13", false, true);
-            userList.get(0).addTodo("Im Wald stolpern", "Dumm", "2018-11-26", false, false);
-            userList.get(0).addTodo("Wolf töten", "Panik", "2018-11-12", true, true);
-            userList.get(0).addTodo("Salami essen", "Panik", "2019-11-12", false, false);
-            userList.get(0).addTodo("Joggen", "Freizeit", "2019-08-12", true, false);
+            userList.get(0).addTodo(0,"Grossmutter besuchen", "Freizeit", "2018-11-24", false, false);
+            userList.get(0).addTodo(1,"Grossmutter befragen", "Freizeit", "2018-12-24", true, false);
+            userList.get(0).addTodo(2,"Von Wolf flüchten", "Panik", "2018-11-13", false, true);
+            userList.get(0).addTodo(3,"Im Wald stolpern", "Dumm", "2018-11-26", false, false);
+            userList.get(0).addTodo(4,"Wolf töten", "Panik", "2018-11-12", true, true);
+            userList.get(0).addTodo(5,"Salami essen", "Panik", "2019-11-12", false, false);
+            userList.get(0).addTodo(6,"Joggen", "Freizeit", "2019-08-12", true, false);
             // save them in the ServletContext
             sc.setAttribute("users", userList);
         }
 
+
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
-      /* This method is invoked when the MarkCompletedServlet Context
-         (the Web application) is undeployed or 
-         Application Server shuts down.
-      */
+//      userSpeichern();
     }
 
     // -------------------------------------------------------

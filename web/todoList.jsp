@@ -150,7 +150,7 @@
 <div id="container">
     <div id="header">
         <div class = "inhalt inhalt_header" action="todoListNew.do" method="get">
-            <h1 class = "inhalt_header_font">Todos of ${aktuellerUser}</h1>
+            <h1 class = "inhalt_header_font">Todos of ${currentUser.getName()}</h1>
         </div>
         <br>
     </div>
@@ -169,7 +169,7 @@
                 <div class="dropdown" action="todoListNew" method="get" >
                     <form action = "todoListNew.do" method="post">
                         <select name="category">
-                            <option value="all}">--All--</option>
+                            <option value="all">--All--</option>
                             <c:forEach items="${categoryList}" var="category" varStatus="loop"  >
                                 <option value="${category}"> --${category}--</option>
                             </c:forEach>

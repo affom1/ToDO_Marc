@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,16 +20,16 @@ public class CreateTodoServlet extends HttpServlet {
     ServletContext sc;
 
     public void init() {
-        // ServerContext initialisieren
-        sc = this.getServletContext();
-        // UserListe aus ServerContext ziehen.
-        userList = (ArrayList<TodoUser>) sc.getAttribute("users");
 
-        // Todo: Choose the correct user, for now, just take the first.
-        currentUser = userList.get(0);
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        // Session holen und User holen.
+        HttpSession session = request.getSession();
+        currentUser  = (TodoUser) session.getAttribute("currentUser");
+
+        // Todos erstellen, gemäss Input aus HTML
         String title = request.getParameter("title");
         String category = request.getParameter("category");
         boolean important = false;
@@ -44,10 +45,18 @@ public class CreateTodoServlet extends HttpServlet {
         String date = request.getParameter("dueDate");
 
         // creation of Todos and save them.
-        currentUser.addTodo(title, category, date, important, false);
-//        sc.setAttribute("users", userList);
+        currentUser.addTodo(determineHighestId(), title, category, date, important, false);
+
 
         // send him back to the List
         response.sendRedirect(request.getContextPath() + "/todoListNew.do");
+    }
+
+    private int determineHighestId() {
+        int highest = 0; // wenn noch kein Todos exisitert wird die ID 0.
+        for (Todo todo : currentUser.getTodoList()) {
+            if (todo.getId() > highest) highest = todo.getId();
+        }
+        return highest;
     }
 }

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -32,6 +33,11 @@ public class UpdateTodoWithInputsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Session holen und User holen.
+        HttpSession session = request.getSession();
+        currentUser  = (TodoUser) session.getAttribute("currentUser");
+
         int id = Integer.parseInt(request.getParameter("id"));
         String title = request.getParameter("title");
         String category = request.getParameter("category");
@@ -47,15 +53,6 @@ public class UpdateTodoWithInputsServlet extends HttpServlet {
             important=true;
             System.out.println("IMportant is"+completed);
         }
-        // important ist einfach Null wenn nicht angekreut. Mühsam...
-//        try {
-//            stringImportant = request.getParameter("important");
-//            if (stringImportant.equals("on")) important = true;
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
 
         // update of Todos and save them.
         for (int i = 0;i<currentUser.getTodoList().size();i++) {
@@ -63,9 +60,6 @@ public class UpdateTodoWithInputsServlet extends HttpServlet {
                 currentUser.getTodoList().get(i).updateEverythingButId(title, category,date,important,completed);
             }
         }
-
-
-//        sc.setAttribute("users", userList);
 
         // send him back to the List
         response.sendRedirect(request.getContextPath() + "/todoListNew.do");
