@@ -37,9 +37,10 @@ public class CreateTodoServlet extends HttpServlet {
         // important ist einfach Null wenn nicht angekreut. Mühsam...
         try {
             stringImportant = request.getParameter("important");
-            if (stringImportant.equals("on")) important = true;
+            if (stringImportant.equals("important")) important = true;
 
         } catch (Exception e) {
+            System.out.println("es ist: "+stringImportant);
             e.printStackTrace();
         }
         String date = request.getParameter("dueDate");

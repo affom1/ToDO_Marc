@@ -275,9 +275,6 @@
                             </table></div>
                         </div>
 
-
-
-
                     </c:forEach>
 
                 </div>

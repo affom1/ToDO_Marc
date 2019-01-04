@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+		<title>Deine ToDo's</title>
+		
+		<style>
+			html, body {margin: 0; padding: 0; height: 100%;}
+			#container {background: white; position: relative; min-height: 100%;}
+			#header {background: orange; position: fixed; top: 0; width: 100%; height: 50px; overflow: hidden;}
+			#body {background: white; padding-top: 50px;}
+			#footer {background: orange; position: absolute; bottom: 0; width: 100%;}
+
+			.inhalt {width: 90%; margin-top:0; margin-left:5%;}
+			.inhalt_header {vertical-align: middle; line-height: 50px;}
+			.inhalt_header_font {margin: 0; padding: 0;}
+			.inhalt_footer {text-align: center; vertical-align: middle;}	
+			.inhalt_footer_font {margin: 0; padding: 0; }
+
+			@media only screen and (min-width: 751px) {
+				#body {padding-bottom: 30px;}
+				#footer {height: 30px;}
+				.inhalt_footer {height:20px; margin-top:5px;}
+			}
+			
+			@media only screen and (min-width: 401px) and (max-width: 750px) {
+				#body {padding-bottom: 50px;}
+				#footer {height: 50px;}
+				.inhalt_footer {height:40px; margin-top:5px;}
+			}
+			
+			@media only screen and (max-width: 400px) {
+				#body {padding-bottom: 70px;}
+				#footer {height: 70px;}
+				.inhalt_footer {height:60px; margin-top:5px;}
+			}
+			
+			@media only screen and (max-width: 799px) {
+				.todo {width: 100%;}
+			}
+
+			@media only screen and (min-width: 800px) and (max-width: 1199px) {
+				.todo {width: 50%;}
+			}
+
+			@media only screen and (min-width: 1200px){
+				.todo {width: 33.33%;}
+			}
+
+			.neu_filter {margin: auto; text-align: center;}
+			
+			@media only screen and (min-width: 700px) {
+				.neu_filter {width: 700px;}
+			}
+			
+			@media only screen and (max-width: 699px) {
+				.neu_filter {width: 100%;}
+			}
+			
+			.neu_filter_label {background: orange; border-radius: 10px;}
+			.neu_filter_form {border-style: solid; border-width: 3px; border-color: orange; padding: 10px; border-radius: 10px;}
+
+			.todo_rahmen {content: ""; clear: both; display: table;}
+			.todo {height: 100%; float: left;}
+
+			.todo_inhalt {width: 80%; height: 80%; margin-left: 10%; margin-top: 10px;}
+			.todo_inhalt_text {border-style: solid; border-width: 3px; border-color: orange; padding: 5px; border-radius: 10px;}
+		</style>
+
+
+		<script type="text/javascript">
+			function myFunction(input) {
+				if (input == 1) {
+					var x = document.getElementById("neues_todo");
+				}
+				if (input == 2) {
+					var x = document.getElementById("filtern_todo");
+				}
+
+				if (x.style.display === "none") {
+					x.style.display = "block";
+				} else {
+					x.style.display = "none";
+				}
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+	
+	<div id="container">
+		<div id="header">
+			<div class = "inhalt inhalt_header">
+				<h1 class = "inhalt_header_font" style = "float:left;" >Deine ToDo's</h1>
+				<div class = "inhalt_header_font" style = "float:right;">
+					<form action="registrieren.jsp" method="post">
+						<input type = "image" name = "submit" src = "logoff.png" border = "0" alt = "Submit" style = "height: 50px;" />
+					</form> 
+				</div>
+			</div>
+		<br>
+		</div>
+		<div id="body">
+		
+			<div class = "inhalt">
+				<section>
+					<div class = "neu_filter">
+						<div class = "neu_filter_label" onclick="myFunction(1)" style="cursor:pointer;">
+							<h1>Neue ToDo erfassen</h1>
+						</div>
+						<div class = "neu_filter_form" id = "neues_todo" style="display: none;">
+							<form action="neuesToDo.jsp" method="post">
+								<label for = "neues_todo_titel">Title</label><br>
+								<input id = "neues_todo_titel" style = "width: 90%;" required><br>
+								<label for = "neues_todo_kategorie">Kategorie</label><br>
+								<input id = "neues_todo_kategorie" style = "width: 90%;" required><br>
+								<label for = "neues_todo_Stichtag">Stichtag</label><br>
+								<input id = "neues_todo_Stichtag" style = "width: 90%;" type = "date" ><br>
+								<label for = "neues_todo_wichtig">Wichtig</label><br>
+								<input id = "neues_todo_wichtig" style = "width: 90%;" type = "checkbox" ><br><br>
+								<input type="submit" value="Neues ToDo erstellen"/>
+							</form>
+						</div>
+					</div>
+
+				</section>
+				
+				<section>
+					<div class = "neu_filter">
+						<div class = "neu_filter_label" onclick="myFunction(2)" style="cursor:pointer;">
+							<h1>ToDo's filtern</h1>
+						</div>
+						<div class = "neu_filter_form" id = "filtern_todo" style="display: none;">
+							<form action="neuesToDo.jsp" method="post">
+
+								<input type="submit" value="ToDo's filtern"/>
+							</form>
+
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<div class = "todo_rahmen"> 
+					
+						<div class = "todo">
+							<div class = "todo_inhalt">
+								<div class = "todo_inhalt_text">
+									<p>Nur ein Todo, ein kleines</p>
+									<hr>
+									<ul style = "columns: 2;">
+										<li>category: </li>
+										<li>important?: </li>
+										<li>completed?: </li>
+										<li>due date: </li>
+										<li>Panik</li>
+										<li>Ja</li>
+										<li>Nein</li>
+										<li>31/12/2018</li>
+									</ul>
+									<hr>
+									<div style = "width: 100%; text-align: center;">
+										<div style = "display: inline-block; width: 30%;">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "check_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "edit_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "delete_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class = "todo">
+							<div class = "todo_inhalt">
+								<div class = "todo_inhalt_text">
+									<p>Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten</p>
+									<hr>
+									<ul style = "columns: 2;">
+										<li>Kategorie: </li>
+										<li>Wichtig: </li>
+										<li>Abgeschlossen: </li>
+										<li>Stichtag: </li>
+										<li>Panik</li>
+										<li>Ja</li>
+										<li>Nein</li>
+										<li>31/12/2018</li>
+									</ul>
+									<hr>
+									<div style = "width: 100%; text-align: center;">
+										<div style = "display: inline-block; width: 30%;">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "check_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "edit_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "delete_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class = "todo">
+							<div class = "todo_inhalt">
+								<div class = "todo_inhalt_text">
+									<p>Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten</p>
+									<hr>
+									<ul style = "columns: 2;">
+										<li>Kategorie: </li>
+										<li>Wichtig: </li>
+										<li>Abgeschlossen: </li>
+										<li>Stichtag: </li>
+										<li>Panik</li>
+										<li>Ja</li>
+										<li>Nein</li>
+										<li>31/12/2018</li>
+									</ul>
+									<hr>
+									<div style = "width: 100%; text-align: center;">
+										<div style = "display: inline-block; width: 30%;">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "check_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "edit_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "delete_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class = "todo">
+							<div class = "todo_inhalt">
+								<div class = "todo_inhalt_text">
+									<p>Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten</p>
+									<hr>
+									<ul style = "columns: 2;">
+										<li>Kategorie: </li>
+										<li>Wichtig: </li>
+										<li>Abgeschlossen: </li>
+										<li>Stichtag: </li>
+										<li>Panik</li>
+										<li>Ja</li>
+										<li>Nein</li>
+										<li>31/12/2018</li>
+									</ul>
+									<hr>
+									<div style = "width: 100%; text-align: center;">
+										<div style = "display: inline-block; width: 30%;">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "check_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "edit_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "delete_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class = "todo">
+							<div class = "todo_inhalt">
+								<div class = "todo_inhalt_text">
+									<p>Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten Wolf t�ten</p>
+									<hr>
+									<ul style = "columns: 2;">
+										<li>Kategorie: </li>
+										<li>Wichtig: </li>
+										<li>Abgeschlossen: </li>
+										<li>Stichtag: </li>
+										<li>Panik</li>
+										<li>Ja</li>
+										<li>Nein</li>
+										<li>31/12/2018</li>
+									</ul>
+									<hr>
+									<div style = "width: 100%; text-align: center;">
+										<div style = "display: inline-block; width: 30%;">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "check_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "edit_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+										<div style = "display: inline-block; width: 30%">
+											<form action="registrieren.jsp" method="post">
+												<input type = "image" name = "submit" src = "delete_2.png" border = "0" alt = "Submit" style = "height: 50px;" />
+											</form> 
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div> 		
+				</section>
+				<br/>
+			</div>			
+		</div>
+		<div id="footer">
+			<div class = "inhalt inhalt_footer">
+				<p class = "inhalt_footer_font">&copy Copyright 2018. All rights reserves. Powered by the BFH - CAS Software Development.</p>
+			</div>
+		</div>
+	</div>
+	
+	
+	</body>
+</html>

@@ -15,18 +15,15 @@
     <title>Deine ToDo's</title>
 
     <style>
-        html, body {background: pink; margin: 0; padding: 0; height: 100%;}
+        html, body {margin: 0; padding: 0; height: 100%;}
         #container {background: white; position: relative; min-height: 100%;}
-        #header {background: gray; position: fixed; top: 0; width: 100%; height: 50px; overflow: hidden;}
+        #header {background: orange; position: fixed; top: 0; width: 100%; height: 50px; overflow: hidden;}
         #body {background: white; padding-top: 50px;}
-        #footer {background: gray; position: absolute; bottom: 0; width: 100%;}
+        #footer {background: orange; position: absolute; bottom: 0; width: 100%;}
 
         .inhalt {width: 90%; margin-top:0; margin-left:5%;}
-
         .inhalt_header {vertical-align: middle; line-height: 50px;}
         .inhalt_header_font {margin: 0; padding: 0;}
-
-
         .inhalt_footer {text-align: center; vertical-align: middle;}
         .inhalt_footer_font {margin: 0; padding: 0; }
 
@@ -49,7 +46,9 @@
         }
 
         .login_registration {background: white; margin: auto; text-align: center;}
+
         .error {color: red}
+
         @media only screen and (min-width: 700px) {
             .login_registration {width: 700px;}
         }
@@ -58,9 +57,11 @@
             .login_registration {width: 100%;}
         }
 
-        .login_registration_label {background: gray; border-radius: 10px;}
-        .login_registration_form {background: white; border-style: solid; border-width: 3px; border-color: gray; padding: 10px; border-radius: 10px;}
+        .login_registration_label {background: orange; border-radius: 10px;}
+        .login_registration_form {border-style: solid; border-width: 3px; border-color: orange; padding: 10px; border-radius: 10px;}
     </style>
+
+
 
     <script type="text/javascript">
         function myFunction(input) {

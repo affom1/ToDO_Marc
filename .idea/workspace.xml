@@ -7,26 +7,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9df5200-134e-4297-a03c-f5bf848f01b4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/CreateTodo_2.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/check_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/delete_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/edit_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/logoff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/uebersicht.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/check_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/check_2_complete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/check_2_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/check_2_save edits.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/check_2_uncomplete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/delete_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/delete_2_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/edit_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/logoff.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pictures/logoff_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/todoList_2.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/business/TodoUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/business/TodoUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/Login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/CreateTodoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/CreateTodoServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/Listeners/UserListListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/Listeners/UserListListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/LoginAndRegistrationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/LoginAndRegistrationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/business/TodoUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/business/TodoUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/TodoListServletNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/WEB-INF/classes/org/todo/servlets/TodoListServletNew.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/todoList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/ToDo_war_exploded/todoList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/CreateTodoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/CreateTodoServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/Listeners/UserListListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/Listeners/UserListListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/LoginAndRegistrationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/LoginAndRegistrationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/business/TodoUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/business/TodoUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/TodoListServletNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDo_Marc/org/todo/servlets/TodoListServletNew.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/DeleteTodoNewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/DeleteTodoNewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/Listeners/UserListListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/Listeners/UserListListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/MarkCompletedNewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/MarkCompletedNewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/MarkUncompletedNewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/MarkUncompletedNewServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/TodoListServletNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/TodoListServletNew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/UpdateTodoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/UpdateTodoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/todo/servlets/UpdateTodoWithInputsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/todo/servlets/UpdateTodoWithInputsServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/Login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/todoList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/todoList.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,49 +46,83 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="87373316">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="4" />
+          <entry key="jsp" value="3" />
+          <entry key="png" value="1" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="4" />
+          <entry key="Image" value="1" />
+          <entry key="JSP" value="3" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="226" />
+          <entry key="java" value="60" />
+          <entry key="jsp" value="1326" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="226" />
+          <entry key="JAVA" value="60" />
+          <entry key="JSP" value="1326" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="ToDO_Marc" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/todoList.jsp">
+        <entry file="file://$PROJECT_DIR$/web/Login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="188" column="48" selection-start-line="188" selection-start-column="40" selection-end-line="188" selection-end-column="48" />
+            <state relative-caret-position="1717">
+              <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/todoList_2.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="301">
+              <caret line="212" selection-start-line="212" selection-end-line="219" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/Login.jsp">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/CreateTodo_2.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="87" column="75" selection-start-line="87" selection-start-column="75" selection-end-line="87" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="309">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -87,17 +131,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/CreateTodo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+            <state relative-caret-position="204">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="22" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/todoList.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2244">
+              <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+              <folding>
+                <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/TodoListServletNew.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="68">
+              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,8 +202,9 @@
       <find>com</find>
       <find>aktuellerUser</find>
       <find>todoL</find>
-      <find>todoList</find>
       <find>todoListtodoList</find>
+      <find>todoList</find>
+      <find>inhalt_header_font</find>
     </findStrings>
     <replaceStrings>
       <replace>Linked</replace>
@@ -159,18 +237,28 @@
         <option value="$PROJECT_DIR$/src/org/todo/business/TodoUser.java" />
         <option value="$PROJECT_DIR$/src/org/todo/business/Todo.java" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/Listeners/UserListListener.java" />
-        <option value="$PROJECT_DIR$/web/Login.jsp" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/DeleteTodoNewServlet.java" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/MarkUncompletedNewServlet.java" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/MarkCompletedNewServlet.java" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/UpdateTodoServlet.java" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/UpdateTodoWithInputsServlet.java" />
-        <option value="$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java" />
-        <option value="$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java" />
+        <option value="$PROJECT_DIR$/web/Login.jsp" />
+        <option value="$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/uebersicht.html" />
         <option value="$PROJECT_DIR$/web/todoList.jsp" />
         <option value="$PROJECT_DIR$/src/org/todo/servlets/TodoListServletNew.java" />
+        <option value="$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java" />
+        <option value="$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java" />
+        <option value="$PROJECT_DIR$/web/CreteTodo_2.jsp" />
+        <option value="$PROJECT_DIR$/web/todoList_2.jsp" />
+        <option value="$PROJECT_DIR$/web/CreateTodo_2.jsp" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -189,6 +277,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,13 +339,18 @@
               <item name="ToDO_Marc" type="b2602c69:ProjectViewProjectNode" />
               <item name="ToDO_Marc" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pictures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ToDO_Marc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ToDO_Marc" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -264,7 +358,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544017484714" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546618760501" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -275,14 +369,19 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Marc Affolter\IdeaProjects\ToDO_Marc\web\WEB-INF\lib" />
+      <recent name="C:\Users\marc_\IdeaProjects\ToDO_Marc\web\pictures" />
       <recent name="C:\Users\marc_\IdeaProjects\ToDO_Marc\web" />
+      <recent name="C:\Users\Marc Affolter\IdeaProjects\ToDO_Marc\web\WEB-INF\lib" />
       <recent name="C:\Users\Marc Affolter\IdeaProjects\ToDO_Marc\web" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.todo.servlets" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marc_\IdeaProjects\ToDO_Marc\web\pictures" />
+      <recent name="C:\Users\marc_\IdeaProjects\ToDO_Marc\web" />
+      <recent name="C:\Users\marc_\IdeaProjects\ToDO_Marc\web\WEB-INF" />
+      <recent name="C:\Users\marc_\IdeaProjects\ToDO_Marc\web\GUI_unbearbeitet_Ordner_später_Löschen" />
       <recent name="C:\Users\Marc Affolter\IdeaProjects\ToDO_Marc\lib" />
     </key>
   </component>
@@ -298,7 +397,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.uebersicht.html">
+    <configuration name="uebersicht.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/todo/GUI_unbearbeitet_Ordner_später_Löschen/uebersicht.html">
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 9 " type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.13" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/todo" />
       <option name="BROWSER_ID" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
@@ -313,11 +415,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_ToDo" />
       </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="52319" />
       </RunnerSettings>
@@ -372,6 +474,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat 9 " />
+      <item itemvalue="JavaScript Debug.uebersicht.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.uebersicht.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -399,11 +510,14 @@
       <workItem from="1543931370288" duration="3927000" />
       <workItem from="1543949549550" duration="4199000" />
       <workItem from="1543994402286" duration="12441000" />
+      <workItem from="1546515546190" duration="9639000" />
+      <workItem from="1546606268138" duration="7929000" />
+      <workItem from="1546617788294" duration="1055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115924000" />
+    <option name="totallyTimeSpent" value="134547000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -415,26 +529,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.92354125" visible="true" weight="0.2012987" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9198266" visible="true" weight="0.20788912" />
       <window_info id="Structure" order="1" sideWeight="0.110944524" side_tool="true" weight="0.2012987" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.10494753" side_tool="true" weight="0.2012987" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.07645875" side_tool="true" visible="true" weight="0.2012987" />
+      <window_info id="Web" order="7" sideWeight="0.08017335" side_tool="true" visible="true" weight="0.20788912" />
       <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.32997987" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32997987" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3249497" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.32394367" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.52816904" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32696176" />
-      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32696176" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.3261105" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32897383" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32897383" />
@@ -457,26 +571,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/web/todoList.jsp</url>
-          <line>150</line>
+          <url>file://$PROJECT_DIR$/web/CreateTodo_2.jsp</url>
+          <line>127</line>
           <properties />
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/web/todoList.jsp</url>
-          <line>146</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/web/todoList.jsp</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -496,24 +601,10 @@
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/MarkCompletedServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/DeleteTodoServlet.java" />
     <entry file="file://$PROJECT_DIR$/web/hello.jsp" />
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/CounterServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/TodoListServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/CategoryServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/org/todo/Main.java" />
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/todo/business/TodoUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -582,10 +673,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html" />
+    <entry file="file://$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="40" selection-start-line="40" selection-end-line="49" selection-end-column="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/GUI_unbearbeitet_Ordner_später_Löschen/uebersicht.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-682">
+          <caret line="157" column="49" selection-start-line="157" selection-start-column="44" selection-end-line="157" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pictures/check_2_edit.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1717">
+          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/todoList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="138" column="35" selection-start-line="138" selection-start-column="35" selection-end-line="138" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/CreateTodoServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        <state relative-caret-position="493">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -594,42 +727,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/LoginAndRegistrationServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="87" column="75" selection-start-line="87" selection-start-column="75" selection-end-line="87" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/CreateTodo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="55" lean-forward="true" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/todoList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="188" column="48" selection-start-line="188" selection-start-column="40" selection-end-line="188" selection-end-column="48" />
-          <folding>
-            <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="731">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="99" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/todo/servlets/TodoListServletNew.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CreateTodo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/todoList_2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="212" selection-start-line="212" selection-end-line="219" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/CreateTodo_2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+          <folding>
+            <element signature="n#!!doc;n#jsp:root#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

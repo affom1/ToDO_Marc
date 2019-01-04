@@ -65,7 +65,7 @@ public class TodoListServletNew extends HttpServlet {
 
         // Kategorienliste in der Session speichern, JSP greift auf diese zu. Danach weiterleiten auf TodoListe jsp
         session.setAttribute("categoryList", categoryList);
-        request.getRequestDispatcher("/todoList.jsp").forward(request, response);
+        request.getRequestDispatcher("/todoList_2.jsp").forward(request, response);
 
     }
     // Wird nur benötigt um Kategorie zu wählen
@@ -113,7 +113,7 @@ public class TodoListServletNew extends HttpServlet {
 
         // Wenns nicht klappt mit session arbeiten anstelle des request.
         request.setAttribute("todoList",kategorienTodoListe );
-        request.getRequestDispatcher("/todoList.jsp").forward(request, response);
+        request.getRequestDispatcher("/todoList_2.jsp").forward(request, response);
     }
 
 
