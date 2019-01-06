@@ -48,7 +48,7 @@ public class LoginAndRegistrationServlet extends HttpServlet {
                     // Todo: CreateTodo als JSP erstellen und schön machen.
                     if (currentUser.getTodoList().isEmpty()) {
                         // Nach Create wenn noch leer
-                        request.getRequestDispatcher("/CreateTodo.html").forward(request, response);
+                        request.getRequestDispatcher("/newTodo.do").forward(request, response);
                         break;
                     } else {
                         // Nach TodosListe wenn nicht leer.
@@ -85,7 +85,7 @@ public class LoginAndRegistrationServlet extends HttpServlet {
                     session.setAttribute("currentUser", currentUser);
                     // Weiterleiten nach neues Todos erstellen und ausbrechen aus Schleife.
                     // Todo: CreateTodo als JSP erstellen und schön machen.
-                    RequestDispatcher rd = request.getRequestDispatcher("/CreateTodo.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("/newTodo.do");
                     rd.forward(request, response);
                     break;
                 }

@@ -18,9 +18,14 @@ public class TodoUser {
     }
 
     public void addTodo(int id, String title, String category, String datum, boolean important, boolean completed){
-
-        todoList.add(new Todo (id, title, category, datum, important, completed));
-        System.out.println("New Todo is created.");
+        if (datum.isEmpty()) {
+            // With date
+            todoList.add(new Todo (id, title, category, important, completed));
+        } else {
+            //Without date
+            todoList.add(new Todo (id, title, category, datum, important, completed));
+        }
+                System.out.println("New Todo is created.");
     }
 
     public ArrayList<Todo> getTodoList() {

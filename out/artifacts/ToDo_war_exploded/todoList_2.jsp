@@ -136,7 +136,7 @@
 
 			<ul class="nav">
 				<li class="nav"><a href="todoListNew.do" class="nav">View Todo's</a></li>
-				<li class="nav"><a href="CreateTodo_2.jsp" class="nav">Create New Todo</a></li>
+				<li class="nav"><a href="newTodo.do" class="nav">Create New Todo</a></li>
 				<li style="float:right" class="nav">
 					<form action="registrieren.jsp" method="post">
 						<input type = "image" name = "submit" src = "pictures/logoff_white.png" border = "0" alt = "Submit" style = "height: 35px;" />
@@ -195,8 +195,8 @@
 												</form>
 											</div>
 											<div style = "display: inline-block; width: 30%">
-												<form action="registrieren.jsp" method="post">
-													<input type = "image" name = "submit" src = "pictures/delete_2_delete.png" border = "0" alt = "Submit" style = "height: 50px;" />
+												<form action="DeleteNew.do" method="post">
+													<input type = "image" name = "delete" value = "${element.getId()}" src = "pictures/delete_2_delete.png" border = "0"  style = "height: 50px;" />
 												</form>
 											</div>
 										</div>

@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import java.time.LocalDate;
+import java.util.*;
+
 
 @WebServlet("/todoListNew.do")
 public class TodoListServletNew extends HttpServlet {
@@ -32,8 +32,20 @@ public class TodoListServletNew extends HttpServlet {
         HttpSession session = request.getSession();
         currentUser  = (TodoUser) session.getAttribute("currentUser");
 
-        // Todos sortieren: using Lambadas --> heavy shit
-        Collections.sort(currentUser.getTodoList(), (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
+        // Todos sortieren
+        Collections.sort(currentUser.getTodoList(), new Comparator<Todo>() {
+            @Override
+            public int compare(Todo o1, Todo o2) {
+                if (o1.getDueDate() == null) {
+                    return (o2.getDueDate() == null) ? 0 : 1;
+                }
+                if (o2.getDueDate() == null) {
+                    return -1;
+                }
+                return o1.getDueDate().compareTo(o2.getDueDate());
+            }
+        });
+
         kategorienTodoListe = currentUser.getTodoList();
         session.setAttribute("todoList", kategorienTodoListe);
 
@@ -109,7 +121,21 @@ public class TodoListServletNew extends HttpServlet {
 
         System.out.println(choosenCategory);
         // Kategorie an das JSP schicken, vorher sortieren
-        Collections.sort(kategorienTodoListe, (a, b) -> a.getDueDate().compareTo(b.getDueDate()));
+        Collections.sort(kategorienTodoListe, new Comparator<Todo>() {
+            @Override
+            public int compare(Todo o1, Todo o2) {
+                if (o1.getDueDate() == null) {
+                    return (o2.getDueDate() == null) ? 0 : 1;
+                }
+                if (o2.getDueDate() == null) {
+                    return -1;
+                }
+                return o1.getDueDate().compareTo(o2.getDueDate());
+            }
+        });
+
+
+//        kategorienTodoListe.sort(Comparator.nullsLast(LocalDate::compareTo).compare(dateOne, dateTwo));
 
         // Wenns nicht klappt mit session arbeiten anstelle des request.
         request.setAttribute("todoList",kategorienTodoListe );

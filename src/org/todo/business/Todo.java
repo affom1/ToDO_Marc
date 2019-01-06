@@ -14,7 +14,7 @@ public class Todo {
     private LocalDate dueDate;
     private boolean important;
     private boolean completed;
-
+    // Konstruktor mit Datum
     public Todo(int id, String title, String category, String datum, boolean important, boolean completed) {
         this.id = id;
         this.title = title;
@@ -22,6 +22,14 @@ public class Todo {
         // Datumskreation
         DateTimeFormatter marcFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
         this.dueDate = LocalDate.parse(datum, marcFormatter);
+        this.important = important;
+        this.completed = completed;
+    }
+    // Konstruktor ohne Datum.
+    public Todo(int id, String title, String category, boolean important, boolean completed) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
         this.important = important;
         this.completed = completed;
     }
@@ -63,10 +71,14 @@ public class Todo {
 
     }
     public String getFormattedDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.LL.yyyy");
-
-        return dueDate.format(formatter);
+        if (dueDate!=null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.LL.yyyy");
+            return dueDate.format(formatter);
+        } else {
+            return  "No date specified";
+        }
     }
+
     public boolean isImportant() {
         return important;
     }

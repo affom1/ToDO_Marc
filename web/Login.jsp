@@ -100,11 +100,11 @@
             </section>
 
             <section>
-                <h1>Anmelden / Registrieren</h1>
+                <h1>Login / Register</h1>
 
                 <div class = "login_registration">
                     <div class = "login_registration_label" onclick="myFunction(1)" style="cursor:pointer;">
-                        <h1>Anmelden</h1>
+                        <h1>Login</h1>
                     </div>
                     <div class = "login_registration_form" id = "login_form" style="display: block;">
                         <form action="LoginAndRegister.do" method="post">
@@ -121,7 +121,7 @@
                         </div>
                     </c:if>
                     <div class = "login_registration_label" onclick="myFunction(2)" style="cursor:pointer;">
-                        <h1>Registrieren</h1>
+                        <h1>Register</h1>
                     </div>
                     <div class = "login_registration_form" id = "registration_form" style="display: none;">
                         <form action="LoginAndRegister.do" method="post">

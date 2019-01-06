@@ -128,22 +128,28 @@
 	</div>
 	<%--End Header / Beginn Body --%>
 
-  <h2>Create a new Todo</h2>
+	<div id="body">
+		<section>
+			<div class = "neu_filter">
 
-	<section>
-		<form action="newTodo.do" method="get">
-			Title <input type="text" name="title"/>
-			<br/><br/>
-			Category <input type="text" name="category"/>
-			<br/><br/>
-			Due date: <input type="date" name="dueDate">
-			<br/><br/>
-			Important? <input type="checkbox" name="important">
-			<br/><br/>
-			<input type="submit" value="Create new Todo"/>
-		</form>
-	</section>
+					<h1>Create a new Todo</h1>
 
+				<div class = "neu_filter_form" id = "neues_todo" >
+					<form action="newTodoWithInputs.do" method="get">
+						Title<br>
+						<input name = "title" style = "width: 90%;" required><br>
+						Category<br>
+						<input name = "category" style = "width: 90%;" required><br>
+						Due Date<br>
+						<input name = "dueDate" style = "width: 90%;" type = "date" ><br>
+						Important<br>
+						<input name = "important" style = "width: 90%;" type = "checkbox" ><br><br>
+						<input type="submit" value="Create new Todo"/>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
 
 
 

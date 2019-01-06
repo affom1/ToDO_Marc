@@ -41,15 +41,17 @@ public class UserListListener implements ServletContextListener,
             userList = new ArrayList<>();
 
             // create a bunch of Samples, uncomment if necessary
-            userList.add(new TodoUser("Freddy Dummy", "password1"));
+            userList.add(new TodoUser("Freddy Dummy", "1"));
 
             userList.get(0).addTodo(0,"Grossmutter besuchen", "Freizeit", "2018-11-24", false, false);
             userList.get(0).addTodo(1,"Grossmutter befragen", "Freizeit", "2018-12-24", true, false);
             userList.get(0).addTodo(2,"Von Wolf flüchten", "Panik", "2018-11-13", false, true);
             userList.get(0).addTodo(3,"Im Wald stolpern", "Dumm", "2018-11-26", false, false);
-            userList.get(0).addTodo(4,"Wolf töten", "Panik", "2018-11-12", true, true);
-            userList.get(0).addTodo(5,"Salami essen", "Panik", "2019-11-12", false, false);
-            userList.get(0).addTodo(6,"Joggen", "Freizeit", "2019-08-12", true, false);
+            userList.get(0).addTodo(4,"Todo ohne Datum", "Freizeit","",true, false);
+            userList.get(0).addTodo(5,"Wolf töten", "Panik", "2018-11-12", true, true);
+            userList.get(0).addTodo(6,"Salami essen", "Panik", "2019-11-12", false, false);
+            userList.get(0).addTodo(7,"Joggen", "Freizeit", "2019-08-12", true, false);
+
             // save them in the ServletContext
             sc.setAttribute("users", userList);
         }
