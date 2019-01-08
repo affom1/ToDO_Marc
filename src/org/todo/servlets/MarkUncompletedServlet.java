@@ -13,14 +13,13 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/MarkCompletedNew.do")
-public class MarkCompletedNewServlet extends HttpServlet {
+@WebServlet("/MarkUncompletedNew.do")
+public class MarkUncompletedServlet extends HttpServlet {
     ArrayList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
 
     public void init () {
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,17 +28,17 @@ public class MarkCompletedNewServlet extends HttpServlet {
         HttpSession session = request.getSession();
         currentUser  = (TodoUser) session.getAttribute("currentUser");
 
-        // Todos mit entprechender ID als Completed markieren.
+        // Todos mit entprechender ID als Uncmpleted markieren.
         int id = Integer.parseInt(request.getParameter("complete"));
-        System.out.println("Wir setzen auf kompletiert bei Element"+ id);
-
+        System.out.println("Wir setzen auf Nichtkompletiert bei Element: "+ id);
         for (Todo todo : currentUser.getTodoList()) {
             if (todo.getId()== id) {
-                todo.setCompleted(true);
+                todo.setCompleted(false);
             }
         }
 
         // send him back to the List
         response.sendRedirect(request.getContextPath() + "/todoListNew.do");
+
     }
 }

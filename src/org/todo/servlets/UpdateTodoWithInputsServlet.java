@@ -20,16 +20,8 @@ public class UpdateTodoWithInputsServlet extends HttpServlet {
     ServletContext sc;
 
     public void init () {
-        // ServerContext initialisieren
-        sc = this.getServletContext();
-        // UserListe aus ServerContext ziehen.
-        userList = ( ArrayList<TodoUser>) sc.getAttribute("users");
 
-        // und wiederum speichern im ServletContext.
-//        sc.setAttribute("users", userList);
 
-        // Todo: Choose the correct user, for now, just take the first.
-        currentUser = userList.get(0);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -42,22 +34,16 @@ public class UpdateTodoWithInputsServlet extends HttpServlet {
         String title = request.getParameter("title");
         String category = request.getParameter("category");
         boolean important = false;
-        boolean completed = false;
         String date = request.getParameter("dueDate");
-//        String stringImportant = null;
-        if (request.getParameter("completed")!=null) {
-            completed=true;
-            System.out.println("completed is"+completed);
-        }
+
         if (request.getParameter("important")!=null) {
             important=true;
-            System.out.println("IMportant is"+completed);
         }
 
         // update of Todos and save them.
         for (int i = 0;i<currentUser.getTodoList().size();i++) {
             if (currentUser.getTodoList().get(i).getId() == id) {
-                currentUser.getTodoList().get(i).updateEverythingButId(title, category,date,important,completed);
+                currentUser.getTodoList().get(i).updateEverythingButId(title, category,date,important);
             }
         }
 

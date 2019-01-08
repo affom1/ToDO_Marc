@@ -3,7 +3,6 @@ package org.todo.servlets;
 import org.todo.business.Todo;
 import org.todo.business.TodoUser;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,21 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.*;
 
 
 @WebServlet("/todoListNew.do")
-public class TodoListServletNew extends HttpServlet {
+public class TodoListServlet extends HttpServlet {
     ArrayList<TodoUser> userList;
     TodoUser currentUser;
-    ArrayList<Todo> kategorienTodoListe = new ArrayList<>();
+    ArrayList<Todo> todoListe = new ArrayList<>();
 
     public void init () {
         // Todo: schick User zurück zu Login wenn keine Session vorhanden. evtl. mit Fehlermessage, melde dich an.
         // Anmerkung, evt. muss das in doGet gemacht werden, da diese Methode sonst trotzdem öffnet.
     }
 
+    // Wird nur benötigt um Kategorie zu wählen
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         // Session holen und User holen.
@@ -46,10 +45,12 @@ public class TodoListServletNew extends HttpServlet {
             }
         });
 
-        kategorienTodoListe = currentUser.getTodoList();
-        session.setAttribute("todoList", kategorienTodoListe);
+        // Todoliste speichern in der Session
+        todoListe = currentUser.getTodoList();
+        session.setAttribute("todoList", todoListe);
 
         // Kategorienliste erstellen, die tendenziell eine Teilmenge der Todoliste ist.
+        System.out.println("-------------Warum komme ich nicht hierhin???-----------");
         ArrayList<String> categoryList = new ArrayList<>();
         if (categoryList==null) categoryList.add(currentUser.getTodoList().get(0).getCategory());   // hinzufügen wenn leer
         for (int i = 1;i<currentUser.getTodoList().size();i++) { // durch den ersten brauchen wir nciht zu iterieren
@@ -78,9 +79,9 @@ public class TodoListServletNew extends HttpServlet {
         // Kategorienliste in der Session speichern, JSP greift auf diese zu. Danach weiterleiten auf TodoListe jsp
         session.setAttribute("categoryList", categoryList);
         request.getRequestDispatcher("/todoList_2.jsp").forward(request, response);
-
     }
-    // Wird nur benötigt um Kategorie zu wählen
+
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
 
         // Session holen und User holen.
@@ -99,19 +100,19 @@ public class TodoListServletNew extends HttpServlet {
         // alle anzeigen, wenn all, ansonsten gewählte Kategorie anzeiegn.
         if (choosenCategory.equals("all")) {
             System.out.println("if wird erreicht");
-            kategorienTodoListe = currentUser.getTodoList();
+            todoListe = currentUser.getTodoList();
         } else {
             System.out.println("else wird erreicht.");
             System.out.println(currentUser.getTodoList().size());
 
-            kategorienTodoListe = null;
-            kategorienTodoListe = new ArrayList<>();
+            todoListe = null;
+            todoListe = new ArrayList<>();
             System.out.println(currentUser.getTodoList().size());
             for (Todo todo1 : currentUser.getTodoList()) {
                 System.out.println("Das Kategorie todo sieht so aus: "+todo1.getCategory());
                 System.out.println("Das choosen Todo sieht so aus: "+choosenCategory);
                 if (todo1.getCategory().equals(choosenCategory)) {
-                    kategorienTodoListe.add(todo1);
+                    todoListe.add(todo1);
                     System.out.println(todo1);
                 }
             }
@@ -121,7 +122,7 @@ public class TodoListServletNew extends HttpServlet {
 
         System.out.println(choosenCategory);
         // Kategorie an das JSP schicken, vorher sortieren
-        Collections.sort(kategorienTodoListe, new Comparator<Todo>() {
+        Collections.sort(todoListe, new Comparator<Todo>() {
             @Override
             public int compare(Todo o1, Todo o2) {
                 if (o1.getDueDate() == null) {
@@ -135,10 +136,10 @@ public class TodoListServletNew extends HttpServlet {
         });
 
 
-//        kategorienTodoListe.sort(Comparator.nullsLast(LocalDate::compareTo).compare(dateOne, dateTwo));
+//        todoListe.sort(Comparator.nullsLast(LocalDate::compareTo).compare(dateOne, dateTwo));
 
         // Wenns nicht klappt mit session arbeiten anstelle des request.
-        request.setAttribute("todoList",kategorienTodoListe );
+        request.setAttribute("todoList", todoListe);
         request.getRequestDispatcher("/todoList_2.jsp").forward(request, response);
     }
 

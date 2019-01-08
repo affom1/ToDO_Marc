@@ -51,25 +51,49 @@ public class Todo {
     }
 
     public String getCategory() {
+        if (category == null) return "no category";
+        return category;
+    }
+    public String getEmptyCategoryIfEmpty(){
+        if (category == null) return "";
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
     }
-    public void updateEverythingButId (String title, String category, String datum, boolean important, boolean completed) {
+    public void updateEverythingButId (String title, String category, String datum, boolean important) {
         this.title=title;
         this.category=category;
-        DateTimeFormatter marcFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        this.dueDate = LocalDate.parse(datum, marcFormatter);
+        if (datum.isEmpty()) {
+            this.dueDate=null;
+        } else {
+            DateTimeFormatter marcFormatter = DateTimeFormatter.ISO_LOCAL_DATE;
+            this.dueDate = LocalDate.parse(datum, marcFormatter);
+        }
         this.important=important;
-        this.completed=completed;
     }
     public LocalDate getDueDate() {
-
+        if (dueDate==null){
+            return LocalDate.now();
+        }
         return dueDate;
+    }
+    public String getInternationalFormattedDate() {
+        if (dueDate==null) return "";
+
+        return dueDate.format(DateTimeFormatter.ISO_LOCAL_DATE);
 
     }
+
+    public String getImportantOnIfChecked(){
+        if (important) return "checked";
+        return "";
+    }
+
+
+
+
     public String getFormattedDate() {
         if (dueDate!=null) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.LL.yyyy");
@@ -103,10 +127,24 @@ public class Todo {
         this.completed = completed;
     }
 
-    public boolean isOverdue () {
-        if (this.dueDate.isAfter(LocalDate.now())) return false; // das Due Date ist nach heute --> somit NICHT overdue
+    public boolean isOverdue() {
+       if (dueDate==null) {
+          return false;
+       }
+       if (this.dueDate.isAfter(LocalDate.now())) return false; // das Due Date ist nach heute --> somit NICHT overdue
+       return true;
+    }
 
-        return true;
+    public String stringIsOverdue() {
+        if(dueDate != null) {
+            if (dueDate.isBefore(LocalDate.now())) {
+                return "true";
+            }
+        }
+        return "false";
+
+
+
     }
 
 }

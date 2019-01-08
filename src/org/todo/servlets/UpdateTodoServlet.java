@@ -22,63 +22,27 @@ public class UpdateTodoServlet extends HttpServlet {
     ArrayList<TodoUser> userList;
     TodoUser currentUser;
     ServletContext sc;
+    Todo currentTodo;
 
-    public void init () {
-        // ServerContext initialisieren
 
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Session holen und User holen.
         HttpSession session = request.getSession();
         currentUser  = (TodoUser) session.getAttribute("currentUser");
 
+        //get current Todo
         int id = Integer.parseInt(request.getParameter("update"));
-        response.setContentType("text/html");
-        String important="";
-        String completed ="";
-        Todo todo =null;
-
         for (int i = 0;i<currentUser.getTodoList().size();i++) {
             if (currentUser.getTodoList().get(i).getId() == id) {
-                todo = currentUser.getTodoList().get(i);
-                if (todo.isImportant())important = "checked";
-                if (todo.isCompleted())completed = "checked";
-                System.out.println(important);
-                System.out.println(completed);
+                currentTodo = currentUser.getTodoList().get(i);
             }
         }
 
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html><html>" +
-                    "<head>\n" +
-                    "    <title>Update Todo</title>\n" +
-                    "</head>" +
-                    " <body>\n" +
-                    "   <h1>Update existing Todo</h1>\n" +
-                    "<ul>\n" +
-                    "   <li><a href=\"CreateTodo.html\">Create new Todo</a></li>\n" +
-                    "    <li><a href=\"Login.do\">LogOut</a></li>\n" +
-                    "    <li><a href=\"todoListNew.do\">Todo List</a></li>\n" +
-                    "</ul>" +
-                    "<form action=\"UpdateTodoWithInputs.do\" method=\"get\" value=\""+id+"\">\n" +
-                    "    Title <input type=\"text\" name=\"title\" value=\""+todo.getTitle()+"\"/>\n" +
-                    "    <br/><br/>\n" +
-                    "    Category <input type=\"text\" name=\"category\" value=\""+todo.getCategory()+"\"/>\n" +
-                    "    <br/><br/>\n" +
-                    "    Due date: <input type=\"date\" name=\"dueDate\" value=\""+todo.getDueDate()+"\"/>\n" +
-                    "    <input type=\"hidden\" name=\"id\" value=\""+id+"\"/>\n"+
-                    "    <br/><br/>\n" +
-                    "    Important? <input type=\"checkbox\" name=\"important\" value=\"important\" "+important+"/>\n" +
-                    "    <br/><br/>\n" +
-                    "    Completed? <input type=\"checkbox\" name=\"completed\" value=\"completed\" "+completed+"/>\n" +
-                    "    <br/><br/>\n" +
-                    "    <input type=\"submit\" value=\"Update your Todo\"/>\n" +
-                    "</form>" +
-                    "</body>\n" +
-                    "</html>"
-            );
-        }
+        //save current Todos in the Session
+        session.setAttribute("currentTodo", currentTodo);
+
+        // Weiterleiten ans JSP
+        response.sendRedirect(request.getContextPath() + "/UpdateTodo.jsp");
+
     }
 }
