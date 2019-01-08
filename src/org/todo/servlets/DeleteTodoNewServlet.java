@@ -29,7 +29,9 @@ public class DeleteTodoNewServlet extends HttpServlet {
         currentUser  = (TodoUser) session.getAttribute("currentUser");
 
         // Todos mit entprechender aus Userliste löschen.
-        int id = Integer.parseInt(request.getParameter("delete"));
+        String id2 = request.getParameter("delete");
+        System.out.println(id2);
+        int id = Integer.parseInt(id2);
         System.out.println("Wir löschen Element: "+ id);
         for (int i = 0;i<currentUser.getTodoList().size();i++) {
             if (currentUser.getTodoList().get(i).getId() == id) currentUser.getTodoList().remove(i);

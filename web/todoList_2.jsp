@@ -15,7 +15,7 @@
 		<title>Todo App</title>
 		
 		<style>
-			html, body {margin: 0; padding: 0; height: 100%;}
+			html, body {font-family: calibri; margin: 0; padding: 0; height: 100%;}
 			#container {background: white; position: relative; min-height: 100%;}
 			#header {background: orange; position: fixed; top: 0; width: 100%; height: 100px; overflow: hidden;}
 			#body {background: white; padding-top: 100px; padding-bottom: 20px}
@@ -91,11 +91,14 @@
 			.neu_filter_label {background: orange; border-radius: 10px;}
 			.neu_filter_form {border-style: solid; border-width: 3px; border-color: orange; padding: 10px; border-radius: 10px;}
 
-			.todo_rahmen {content: ""; clear: both; display: table;}
+			.todo_rahmen {content: ""; clear: both; display: table; width: 100%;}
 			.todo {height: 100%; float: left;}
 
 			.todo_inhalt {width: 80%; height: 80%; margin-left: 10%; margin-top: 10px;}
 			.todo_inhalt_text {border-style: solid; border-width: 3px; border-color: orange; padding: 5px; border-radius: 10px;}
+
+			.buttonToDo {background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;}
+
 		</style>
 
 
@@ -165,7 +168,6 @@
 				
 				<section>
 					<div class = "todo_rahmen">
-						<div action="todoListNew.do" method="get">
 							<c:forEach items="${todoList}" var="element">
 							<div class = "todo">
 								<div class = "todo_inhalt">
@@ -185,9 +187,18 @@
 										<hr>
 										<div style = "width: 100%; text-align: center;">
 											<div style = "display: inline-block; width: 30%;">
-												<form action="registrieren.jsp" method="post">
-													<input type = "image" name = "submit" src = "pictures/check_2_complete.png" border = "0" alt = "Submit" style = "height: 50px;" />
-												</form>
+												<c:choose>
+													<c:when test="${element.isCompleted()}">
+														<form action="MarkUncompletedNew.do" method="post">
+															<button class = "buttonToDo" type="submit" name="complete" value="${element.getId()}"><img src="pictures/check_2_uncomplete.png" alt="Submit" height="50px"></button>
+														</form>
+													</c:when>
+													<c:otherwise>
+														<form action="MarkCompletedNew.do" method="post">
+															<button class = "buttonToDo" type="submit" name="complete" value="${element.getId()}"><img src="pictures/check_2_complete.png" alt="Submit" height="50px"></button>
+														</form>
+													</c:otherwise>
+												</c:choose>
 											</div>
 											<div style = "display: inline-block; width: 30%">
 												<form action="registrieren.jsp" method="post">
@@ -196,7 +207,7 @@
 											</div>
 											<div style = "display: inline-block; width: 30%">
 												<form action="DeleteNew.do" method="post">
-													<input type = "image" name = "delete" value = "${element.getId()}" src = "pictures/delete_2_delete.png" border = "0"  style = "height: 50px;" />
+													<button class = "buttonToDo" type="submit" name="delete" value="${element.getId()}"><img src="pictures/delete_2_delete.png" alt="Submit" height="50px"></button>
 												</form>
 											</div>
 										</div>
@@ -204,7 +215,7 @@
 								</div>
 							</div>
 							</c:forEach>
-						</div>
+
 					</div>
 				</section>
 				<br/>
