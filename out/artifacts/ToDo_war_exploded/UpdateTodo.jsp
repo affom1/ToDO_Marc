@@ -120,7 +120,7 @@
             <li class="nav"><a href="todoListNew.do" class="nav">View Todo's</a></li>
             <li class="nav"><a href="CreateTodo_2.jsp" class="nav">Create New Todo</a></li>
             <li style="float:right" class="nav">
-                <form action="registrieren.jsp" method="post">
+                <form action="logout.do" method="post">
                     <input type = "image" name = "submit" src = "pictures/logoff_white.png" border = "0" alt = "Submit" style = "height: 35px;" />
                 </form>
             </li>

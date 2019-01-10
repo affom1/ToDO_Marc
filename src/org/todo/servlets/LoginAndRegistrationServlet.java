@@ -40,14 +40,18 @@ public class LoginAndRegistrationServlet extends HttpServlet {
                 if (userList.get(zähler).getName().equals(name) && userList.get(zähler).getPassword().equals(password)) {
                     System.out.println(userList.get(zähler).getName() + " hat sich erfolgreich eingeloggt");
                     this.currentUser = userList.get(zähler);
-                    session = request.getSession();
-                    session.setAttribute("currentUser", currentUser);
-                    // Neues todos erstellen, wenn Liste leer.
                     korrektesLogin = true;
 
-                    // Todo: CreateTodo als JSP erstellen und schön machen.
+                    // User in Session speichern
+                    session = request.getSession();
+                    session.setAttribute("currentUser", currentUser);
+
+                    // Erstkategorie in Session speichern
+                    session.setAttribute("choosenCategory", "all");
+
+                    // User auf die Reise schicken
                     if (currentUser.getTodoList().isEmpty()) {
-                        // Nach Create wenn noch leer
+                        // Nach CreateServlet schicken wenn noch leer
                         request.getRequestDispatcher("/newTodo.do").forward(request, response);
                         break;
                     } else {
@@ -99,4 +103,6 @@ public class LoginAndRegistrationServlet extends HttpServlet {
 
 
         }
+
+
 }

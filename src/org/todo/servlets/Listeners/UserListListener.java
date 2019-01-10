@@ -54,6 +54,7 @@ public class UserListListener implements ServletContextListener,
 
             // save them in the ServletContext
             sc.setAttribute("users", userList);
+
         }
 
 
