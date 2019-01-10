@@ -52,7 +52,7 @@ public class CreateTodoWithInputsServlet extends HttpServlet {
         }
 
         // creation of Todos and save them.
-        currentUser.addTodo(determineHighestId(), title, category, date, important, false);
+        currentUser.addTodo(determineHighestId()+1, title, category, date, important, false);
 
         // send him back to the List
         response.sendRedirect(request.getContextPath() + "/todoListNew.do");

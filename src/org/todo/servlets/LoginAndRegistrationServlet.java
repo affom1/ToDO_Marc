@@ -77,7 +77,7 @@ public class LoginAndRegistrationServlet extends HttpServlet {
             while (zähler<  userList.size()) {
                 if (userList.get(zähler).getName().equals(name)) { // Fall User existiert bereits
                     System.out.println(userList.get(zähler).getName() + " existiert bereits und kann nicht gewählt werden");
-                    request.setAttribute("errorMessage", "user already exists, please try againin section Registration");
+                    request.setAttribute("errorMessage", "user already exists, please try again in section Registration");
                     RequestDispatcher rd = request.getRequestDispatcher("/Login.jsp");
                     rd.forward(request, response);
                 }
